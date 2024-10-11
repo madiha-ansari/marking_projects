@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // User se naam lete hain
+    const userName = prompt("Apna naam daalein:");
+
+    // Subjects aur unke marks
+    const subjects = ["Math", "Science", "English", "History", "Geography"];
+    let marks = [];
+    let total = 0;
+
+    // Marks lete hain
+    for (let subject of subjects) {
+        let mark = parseInt(prompt(`${subject} ke liye marks daalein:`));
+        marks.push(mark);
+        total += mark;
+    }
+
+    // Percentage calculate karte hain
+    const percentage = (total / (subjects.length * 100)) * 100;
+
+    // Table create karte hain
+    let tableHTML = `<table>
+                        <tr>
+                            <th>Name</th>
+                            <th>${subjects[0]}</th>
+                            <th>${subjects[1]}</th>
+                            <th>${subjects[2]}</th>
+                            <th>${subjects[3]}</th>
+                            <th>${subjects[4]}</th>
+                            <th>Total</th>
+                            <th>Percentage</th>
+                        </tr>
+                        <tr>
+                            <td>${userName}</td>
+                            <td>${marks[0]}</td>
+                            <td>${marks[1]}</td>
+                            <td>${marks[2]}</td>
+                            <td>${marks[3]}</td>
+                            <td>${marks[4]}</td>
+                            <td>${total}</td>
+                            <td>${percentage.toFixed(2)}%</td>
+                        </tr>
+                    </table>`;
+
+    // Table ko body me append karte hain
+    document.body.innerHTML += tableHTML;
+</script>
+
+</body>
+</html>
